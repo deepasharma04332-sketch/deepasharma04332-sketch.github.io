@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deepa Sharma — Full-Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16181D;
+    --ink-soft:#5B5E68;
+    --line:#E7E5E0;
+    --bg:#FFFFFF;
+    --chip-bg:#F1EEFF;
+    --chip-text:#5B4FE0;
+    --chip-bg2:#FFF1E8;
+    --chip-text2:#D4621A;
+    --grad1:#6C63FF;
+    --grad2:#FF8A65;
+    --sans:'Inter',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;}
+  a{color:var(--grad1);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 28px;}
+
+  /* ===== Hero gradient banner ===== */
+  .hero{
+    background:linear-gradient(135deg,var(--grad1) 0%,#9C7BFF 45%,var(--grad2) 100%);
+    padding:48px 0 70px;
+    color:#fff;
+    position:relative;
+  }
+  .hero-eyebrow{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em;opacity:.92;margin-bottom:14px;}
+  .hero h1{font-size:clamp(32px,5.5vw,46px);font-weight:800;margin:0 0 10px;letter-spacing:-.01em;}
+  .hero .loc{font-size:14.5px;opacity:.92;font-weight:500;}
+
+  /* ===== Intro card ===== */
+  .intro{
+    background:#fff;
+    margin:-44px auto 0;
+    max-width:760px;
+    border-radius:16px;
+    box-shadow:0 18px 40px -18px rgba(20,20,40,.25);
+    padding:38px 36px 34px;
+    position:relative;
+    display:flex;
+    gap:26px;
+    align-items:flex-start;
+  }
+  .avatar{
+    width:84px;height:84px;border-radius:50%;flex:none;
+    background:linear-gradient(135deg,var(--grad1),var(--grad2));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-family:var(--mono);font-weight:700;font-size:28px;
+    box-shadow:0 6px 16px -6px rgba(108,99,255,.5);
+  }
+  .intro-text h2{font-size:24px;font-weight:800;margin:0 0 12px;}
+  .intro-text p{font-size:15px;color:var(--ink-soft);margin:0 0 12px;}
+  .pill{
+    display:inline-block;padding:2px 9px;border-radius:6px;font-weight:600;font-size:14.5px;
+    background:var(--chip-bg);color:var(--chip-text);
+  }
+  .pill2{background:var(--chip-bg2);color:var(--chip-text2);}
+  .badges-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
+  .tagbadge{font-family:var(--mono);font-size:11.5px;border:1px solid var(--line);border-radius:20px;padding:5px 12px;color:var(--ink-soft);}
+
+  @media (max-width:600px){
+    .intro{flex-direction:column;align-items:flex-start;border-radius:14px;margin:-36px 16px 0;padding:28px 22px;}
+  }
+
+  /* ===== Contact rail ===== */
+  .contact-rail{
+    display:flex;flex-wrap:wrap;gap:18px;
+    font-family:var(--mono);font-size:13px;color:var(--ink-soft);
+    padding:26px 0 0;
+    max-width:760px;margin:0 auto;
+  }
+  .contact-rail a{color:var(--ink);}
+  .contact-rail span.dot{color:var(--line);margin:0 4px;}
+
+  /* ===== Sections ===== */
+  .section{padding:56px 0;border-top:1px solid var(--line);}
+  .sec-title{font-size:22px;font-weight:800;margin:0 0 26px;display:flex;align-items:center;gap:10px;}
+  .sec-title .num{font-family:var(--mono);font-size:13px;color:#fff;background:var(--grad1);border-radius:6px;padding:3px 8px;font-weight:700;}
+
+  /* ===== Stack ===== */
+  .stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;}
+  .stack-card{border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .stack-card-label{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--grad1);margin-bottom:8px;}
+  .stack-card-val{font-size:14.5px;color:var(--ink);}
+
+  /* ===== Project cards ===== */
+  .module{
+    border:1px solid var(--line);border-radius:14px;margin-bottom:16px;overflow:hidden;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .module:hover{box-shadow:0 12px 28px -16px rgba(20,20,40,.25);transform:translateY(-2px);}
+  .module-head{display:flex;justify-content:space-between;align-items:flex-start;padding:18px 20px 0;}
+  .module-name{font-size:18px;font-weight:700;margin:0;}
+  .module-year{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);}
+  .status{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;text-transform:uppercase;font-weight:600;}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block;}
+  .dot.shipped{background:#34B26F;}
+  .module-body{padding:14px 20px 20px;}
+  .module-stack{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;}
+  .stack-chip{font-family:var(--mono);font-size:11px;background:var(--chip-bg);color:var(--chip-text);border-radius:6px;padding:3px 9px;}
+  .module-desc{font-size:14.5px;color:var(--ink-soft);margin:0 0 12px;}
+  .module-links a{font-family:var(--mono);font-size:12.5px;font-weight:600;}
+
+  /* ===== Experience ===== */
+  .exp-item{padding:20px 0;border-bottom:1px solid var(--line);}
+  .exp-item:last-child{border-bottom:none;}
+  .exp-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  .exp-role{font-weight:700;font-size:16px;}
+  .exp-date{font-family:var(--mono);font-size:12px;color:var(--ink-soft);}
+  .exp-org{color:var(--grad1);font-size:14px;margin-bottom:8px;font-weight:600;}
+  .exp-desc{font-size:14.5px;color:var(--ink-soft);margin:0;padding-left:18px;}
+  .exp-desc li{margin-bottom:5px;}
+
+  /* ===== Certifications ===== */
+  .cert-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;list-style:none;padding:0;margin:0;}
+  .cert-list li{padding:12px 14px;font-size:13.5px;border:1px solid var(--line);border-radius:10px;color:var(--ink-soft);}
+  .cert-list li::before{content:"✦ ";color:var(--grad1);}
+
+  /* ===== Footer ===== */
+  footer{padding:48px 0 60px;text-align:center;background:#FAFAFB;}
+  footer .ftitle{font-size:24px;font-weight:800;margin:0 0 16px;}
+  footer .links a{font-family:var(--mono);font-size:13px;margin:0 14px;color:var(--ink);}
+  .rev{margin-top:20px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);}
+
+  @media (max-width:600px){
+    .cert-list{grid-template-columns:1fr;}
+    .contact-rail{padding:26px 16px 0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">DEEPA SHARMA</div>
+    <h1>Full-Stack Developer &amp; AI/ML Enthusiast</h1>
+    <div class="loc">Gwalior, Madhya Pradesh, India</div>
+  </div>
+</div>
+
+<div class="intro">
+  <div class="avatar">DS</div>
+  <div class="intro-text">
+    <h2>Hey, I'm Deepa 👋</h2>
+    <p>I'm a final-year <span class="pill">BCA</span> student at ITM University, Gwalior, building full-stack web apps with <span class="pill">FastAPI</span>, <span class="pill">Flask</span> and <span class="pill">React.js</span>, with working knowledge of AI and ML.</p>
+    <p>I'm an active <span class="pill2">Google Student Ambassador</span> for 2026, and I'm currently looking for an internship or entry-level role in full-stack development or AI/ML engineering.</p>
+    <div class="badges-row">
+      <span class="tagbadge">Open to Work</span>
+      <span class="tagbadge">3 Projects Shipped</span>
+      <span class="tagbadge">BCA 2024–27</span>
+    </div>
+  </div>
+</div>
+
+<div class="contact-rail">
+  <span><a href="mailto:deepasharma04332@gmail.com">deepasharma04332@gmail.com</a></span>
+  <span class="dot">·</span>
+  <span>+91-9111071527</span>
+  <span class="dot">·</span>
+  <span><a href="https://github.com/deepasharma04332-sketch" target="_blank">GitHub</a></span>
+  <span class="dot">·</span>
+  <span><a href="https://linkedin.com/in/deepa-sharma127b1737b" target="_blank">LinkedIn</a></span>
+</div>
+
+<div class="wrap">
+
+  <section class="section" id="stack">
+    <h2 class="sec-title"><span class="num">01</span> Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-card"><div class="stack-card-label">Languages</div><div class="stack-card-val">Python, Java, JavaScript</div></div>
+      <div class="stack-card"><div class="stack-card-label">Frontend</div><div class="stack-card-val">React.js, HTML5, CSS3, Tailwind CSS, Vite</div></div>
+      <div class="stack-card"><div class="stack-card-label">Backend</div><div class="stack-card-val">FastAPI, Flask, Node.js, REST APIs, Uvicorn</div></div>
+      <div class="stack-card"><div class="stack-card-label">Databases</div><div class="stack-card-val">MySQL, MongoDB</div></div>
+      <div class="stack-card"><div class="stack-card-label">Libraries</div><div class="stack-card-val">Pandas, NumPy, Matplotlib, OpenCV</div></div>
+      <div class="stack-card"><div class="stack-card-label">AI / ML</div><div class="stack-card-val">ML fundamentals, CNN, model training &amp; evaluation</div></div>
+      <div class="stack-card"><div class="stack-card-label">Tools</div><div class="stack-card-val">Git, GitHub, Docker, VS Code</div></div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <h2 class="sec-title"><span class="num">02</span> Projects</h2>
+
+    <div class="module">
+      <div class="module-head">
+        <div>
+          <p class="module-name">Personal Finance Tracker</p>
+          <p class="module-year">2026</p>
+        </div>
+        <div class="status"><span class="dot shipped"></span>Shipped</div>
+      </div>
+      <div class="module-body">
+        <div class="module-stack">
+          <span class="stack-chip">Flask</span><span class="stack-chip">React.js</span><span class="stack-chip">MySQL</span>
+        </div>
+        <p class="module-desc">Full-stack web application for tracking personal income, expenses, and budgets, with a Flask REST API backend and a React.js frontend. Designed a MySQL schema for transactions and categories, with CRUD operations and summary views for spending patterns.</p>
+        <div class="module-links"><a href="https://github.com/deepasharma04332-sketch" target="_blank">View Code →</a></div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-head">
+        <div>
+          <p class="module-name">Emotion Detection Using Facial Expression</p>
+          <p class="module-year">2025</p>
+        </div>
+        <div class="status"><span class="dot shipped"></span>Shipped</div>
+      </div>
+      <div class="module-body">
+        <div class="module-stack">
+          <span class="stack-chip">Python</span><span class="stack-chip">OpenCV</span><span class="stack-chip">CNN</span>
+        </div>
+        <p class="module-desc">Real-time facial expression recognition system classifying emotions (happy, sad, angry, neutral, surprised) from a live webcam feed. Trained a CNN model on a labeled facial expression dataset, using OpenCV for face detection and preprocessing.</p>
+        <div class="module-links"><a href="https://github.com/deepasharma04332-sketch" target="_blank">View Code →</a></div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="module-head">
+        <div>
+          <p class="module-name">Developer Portfolio Website</p>
+          <p class="module-year">2025</p>
+        </div>
+        <div class="status"><span class="dot shipped"></span>Shipped</div>
+      </div>
+      <div class="module-body">
+        <div class="module-stack">
+          <span class="stack-chip">HTML</span><span class="stack-chip">CSS</span><span class="stack-chip">JavaScript</span>
+        </div>
+        <p class="module-desc">Personal developer portfolio with a build-log/datasheet visual style, showcasing projects, skills, and experience. Implemented as a single-file static site and deployed via GitHub Pages.</p>
+        <div class="module-links"><a href="https://github.com/deepasharma04332-sketch" target="_blank">View Code →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <h2 class="sec-title"><span class="num">03</span> Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Student Ambassador</span>
+        <span class="exp-date">2026</span>
+      </div>
+      <div class="exp-org">Google Student Ambassador Program — Google &amp; Gemini Initiatives</div>
+      <ul class="exp-desc">
+        <li>Selected to represent Google and Gemini AI initiatives; promoted AI literacy and student participation on campus</li>
+        <li>Conducted awareness sessions; facilitated technology workshops and encouraged peers to explore AI-powered tools</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Data Analytics Virtual Intern</span>
+        <span class="exp-date">2024 – 2025</span>
+      </div>
+      <div class="exp-org">GenAI Powered Data Analytics — Forage</div>
+      <ul class="exp-desc">
+        <li>Completed a virtual internship program focused on GenAI-powered data analytics through Forage's industry simulation platform</li>
+        <li>Received real-world datasets and performed end-to-end data processing: cleaning, organizing, and structuring raw data</li>
+        <li>Submitted final deliverables including processed data files and analytical outputs as part of task-based assessments</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Independent Full-Stack Developer</span>
+        <span class="exp-date">Jan 2025 – Present</span>
+      </div>
+      <div class="exp-org">Self-Initiated Projects (3 Projects)</div>
+      <ul class="exp-desc">
+        <li>Conceptualized, designed, and built 3 web applications independently from scratch to completion</li>
+        <li>Worked with Python, Flask, React.js, MySQL, OpenCV, and machine learning libraries; covered UI/UX, data processing, and model integration</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-top">
+        <span class="exp-role">Hackathons</span>
+      </div>
+      <ul class="exp-desc">
+        <li>Visionary Hackathon 2.0</li>
+        <li>Smart India Hackathon (Internal Round)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="certifications">
+    <h2 class="sec-title"><span class="num">04</span> Certifications</h2>
+    <ul class="cert-list">
+      <li>HackerRank – Python (Basic) Certification</li>
+      <li>Introduction to Cloud Computing – Skill India</li>
+      <li>GenAI Powered Data Analytics – Forage</li>
+      <li>Java Programming: Solving Problems with Software – Coursera</li>
+      <li>Data Structures and Algorithms Using Python – Infosys Springboard</li>
+      <li>Cyber Job Simulation – Deloitte</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="ftitle">Let's build something 🚀</p>
+    <div class="links">
+      <a href="https://github.com/deepasharma04332-sketch" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/deepa-sharma127b1737b" target="_blank">LinkedIn</a>
+      <a href="mailto:deepasharma04332@gmail.com">Email</a>
+    </div>
+    <div class="rev">Last updated June 2026 — built by Deepa Sharma</div>
+  </div>
+</footer>
+
+</body>
+</html>
