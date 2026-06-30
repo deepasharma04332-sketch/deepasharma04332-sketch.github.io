@@ -1,10 +1,10 @@
-Deepa Sharma — Portfolio------------------!
+Deepa Sharma — Portfolio--------------!
 
 Personal developer portfolio website showcasing my projects, skills, and experience.
 
 🔗 Live site: https://deepasharma04332-sketch.github.io/
 
- Built with-----------------------!
+ Built with--------------------!
 
 - HTML, CSS, JavaScript
 
