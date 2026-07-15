@@ -4,7 +4,7 @@ Personal developer portfolio website showcasing my projects, skills, and experie
 
 🔗 Live site: https://deepasharma04332-sketch.github.io/
 
- Built with--------------------!
+ Built with----------!
 
 - HTML, CSS, JavaScript
 
