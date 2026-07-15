@@ -1,4 +1,4 @@
-Deepa Sharma — Portfolio--------------!
+Deepa Sharma — Portfolio------------!
 
 Personal developer portfolio website showcasing my projects, skills, and experience.
 
